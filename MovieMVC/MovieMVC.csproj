@@ -315,6 +315,12 @@
       <DependentUpon>201611221946377_AddUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MovieModel\MovieModel\MovieModel.csproj">
+      <Project>{0bb3637a-9b4a-4222-a931-928cef32977a}</Project>
+      <Name>MovieModel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
