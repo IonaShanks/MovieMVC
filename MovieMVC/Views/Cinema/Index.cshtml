@@ -1,0 +1,69 @@
+﻿@model IEnumerable<MovieModel.Cinema>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Cinema Details</h2>
+
+<p>@Html.ActionLink("Add New Cinema", "Create")</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Listing.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Website)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TicketPrice)
+        </th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Listing.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Website)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TicketPrice)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.CinemaID })
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id = item.CinemaID })
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id = item.CinemaID })
+        </td>
+    </tr>
+
+}
+    <tr>
+        <td>
+            @Html.ActionLink("Add New Cinema", "Create")
+        </td>
+    </tr>
+
+</table>
+

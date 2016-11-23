@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Movie Project</h1>
+    <p class="lead">IT Tallaght EAD joint project for CA2. Lecturer Gary Clynch. HDip in Science in Computing TA_KCOMP_HD</p>
+    <p class="lead">Goal: to create a web service and API to browse local cinema showings by filter or search terms backed by an SQL database.</p>
+    @*<p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Cinema</h2>
+        <p>Details about the cinemas..............................................................</p>
+        <p><a class="btn btn-default" href="http://localhost:27455/cinema">Details &raquo;</a></p>
+        <p><a class="btn btn-default" href="http://localhost:27455/cinema/create">Add &raquo;</a></p>
+        @*<p><a class="btn btn-default" href="http://localhost:27455/cinema/edit">Update &raquo;</a></p>*@   @*Update and delete need to take in an ID*@
+
+    </div>
+    <div class="col-md-6">
+        <h2>Movie </h2>
+        <p>Details about the movies.</p>
+        <p><a class="btn btn-default" href="http://localhost:27455/movielisting">Details &raquo;</a></p>
+        <p>@Html.ActionLink("Details", "Index", "MovieListing")</p>
+        <p><a class="btn btn-default" href="http://localhost:27455/movielisting/create">Add &raquo;</a></p>
+        <p>@Html.ActionLink("Add", "Create", "MovieListing")</p>
+        
+        
+    </div>
+    @*<div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>*@
+</div>
