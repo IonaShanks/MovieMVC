@@ -33,17 +33,37 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">                    
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    @*<li>@Html.ActionLink("About", "About", "Home")</li>*@
                     <li>@Html.ActionLink("Cinema", "Index", "Cinema")</li>
                     <li>@Html.ActionLink("Movie", "Index", "Movie")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                     
                 </ul>
+                
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
+    
+        
+    
     <div class="container body-content">
+        @if (ViewContext.RouteData.Values["controller"].ToString().ToLower() != "home")
+        {
+
+            <ol class="breadcrumb">
+                <li>
+                    @Html.ActionLink("Home", "Index", "Home")
+                </li>
+                <li>
+                    @Html.ActionLink(ViewContext.RouteData.Values["controller"].ToString(), "Index")
+                </li>
+                <li class="active">
+                    @Html.ActionLink(ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["action"].ToString())
+                </li>
+            </ol>
+
+        }
         @RenderBody()
         <hr />
         <footer>

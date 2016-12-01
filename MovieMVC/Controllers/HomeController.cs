@@ -13,18 +13,18 @@ namespace MovieMVC.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "CA2 mini project, HDIP computing IT-Tallaght.";
+        //public ActionResult About()
+        //{
+        //    ViewBag.Message = "CA2 mini project, HDIP computing IT-Tallaght.";
 
-            return View();
-        }
+        //    return View();
+        //}
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Contact us.";
+        //public ActionResult Contact()
+        //{
+        //    ViewBag.Message = "Contact us.";
 
-            return View();
-        }
+        //    return View();
+        //}
     }
 }

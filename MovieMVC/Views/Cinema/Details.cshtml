@@ -51,8 +51,11 @@
         </dd>
 
     </dl>
+    
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.CinemaID }) |
+            @Html.ActionLink("Back to Cinemas", "Index")
+        </p>
+    
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CinemaID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+

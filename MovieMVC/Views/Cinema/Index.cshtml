@@ -8,62 +8,80 @@
 
 <p>@Html.ActionLink("Add New Cinema", "Create")</p>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Movies.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Website)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TicketPrice)
-        </th>
-        <th></th>
-        <th></th>
-        <th></th>
-    </tr>
+@using (Html.BeginForm("Index", "Cinema", FormMethod.Get))
+{
+    <div class="row">
+        <div class="input-group">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="control-label" for="inputDefault">Name: </label>
+                    <div class="input-group">
+                        @Html.TextBox("SearchString", "", new { @class = "form-control" })
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">Filter</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Movies.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Website)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhoneNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TicketPrice)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.CinemaID })
-        </td>
-        <td>
-            @Html.ActionLink("Details", "Details", new { id = item.CinemaID })
-        </td>
-        <td>
-            @Html.ActionLink("Delete", "Delete", new { id = item.CinemaID })
-        </td>
-    </tr>
 
 }
-    <tr>
-        <td>
-            @Html.ActionLink("Add New Cinema", "Create")
-        </td>
-    </tr>
 
-</table>
+            <table class="table table-striped table-bordered table-hover">
+                <tr class="success">
+                    <th>
+                        @Html.DisplayNameFor(model => model.Movies.Title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Website)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PhoneNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TicketPrice)
+                    </th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Movies.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Website)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TicketPrice)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.CinemaID })
+                        </td>
+                        <td>
+                            @Html.ActionLink("Details", "Details", new { id = item.CinemaID })
+                        </td>
+                        <td>
+                            @Html.ActionLink("Delete", "Delete", new { id = item.CinemaID })
+                        </td>
+                    </tr>
+
+                }
+
+
+            </table>
 

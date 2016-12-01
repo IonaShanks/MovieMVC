@@ -1,16 +1,46 @@
 ﻿@model IEnumerable<MovieModel.Movie>
 
+
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Movie Details</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add New Movie", "Create")
 </p>
-<table class="table">
-    <tr>
+@using (Html.BeginForm("Index", "Movie", FormMethod.Get))
+
+{
+
+
+
+    <div class="row">
+        <div class="input-group">
+
+            <div class="col-md-4">
+                <label class="control-label" for="inputDefault">Genre:</label>
+                @Html.DropDownList("movieGenre", (SelectList)ViewBag.movieGenre, "All", new { @class = "form-control" })
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label" for="inputDefault">Title: </label>
+                    <div class="input-group">
+                        @Html.TextBox("SearchString", "", new { @class = "form-control" })
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">Filter</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+<table class="table table-striped table-bordered table-hover">
+    <tr class="success">
         <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
