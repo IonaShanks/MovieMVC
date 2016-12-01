@@ -56,6 +56,9 @@
         <th>
             @Html.DisplayNameFor(model => model.RunTime)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShowTime)
+        </th>
         <th></th>
         <th></th>
         <th></th>
@@ -77,6 +80,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.RunTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShowTime)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.MovieID }) 
