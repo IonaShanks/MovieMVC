@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MovieModel.MovieListing>
+﻿@model IEnumerable<MovieModel.Movie>
 
 @{
     ViewBag.Title = "Index";
@@ -49,13 +49,13 @@
             @Html.DisplayFor(modelItem => item.RunTime)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.FilmID }) 
+            @Html.ActionLink("Edit", "Edit", new { id = item.MovieID }) 
         </td>
         <td>
-            @Html.ActionLink("Details", "Details", new { id = item.FilmID }) 
+            @Html.ActionLink("Details", "Details", new { id = item.MovieID }) 
         </td>
         <td>
-            @Html.ActionLink("Delete", "Delete", new { id = item.FilmID })
+            @Html.ActionLink("Delete", "Delete", new { id = item.MovieID })
         </td>
     </tr>
 }

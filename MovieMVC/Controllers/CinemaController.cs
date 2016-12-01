@@ -13,7 +13,7 @@ namespace MovieMVC.Controllers
         // GET: Cinema
         public async Task<ActionResult> Index()
         {
-            var cinemas = db.Cinemas.Include(c => c.Listing);
+            var cinemas = db.Cinemas.Include(c => c.Movies);
             return View(await cinemas.ToListAsync());
         }
 
@@ -35,7 +35,7 @@ namespace MovieMVC.Controllers
         // GET: Cinema/Create
         public ActionResult Create()
         {
-            ViewBag.FilmID = new SelectList(db.Listings, "FilmID", "Title");
+            ViewBag.MovieID = new SelectList(db.Movies, "MovieID", "Title");
             return View();
         }
 
@@ -44,7 +44,7 @@ namespace MovieMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "CinemaID,Name,Website,PhoneNumber,TicketPrice,FilmID")] Cinema cinema)
+        public async Task<ActionResult> Create([Bind(Include = "CinemaID,Name,Website,PhoneNumber,TicketPrice,MovieID")] Cinema cinema)
         {
             if (ModelState.IsValid)
             {
@@ -53,7 +53,7 @@ namespace MovieMVC.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.FilmID = new SelectList(db.Listings, "FilmID", "Title", cinema.FilmID);
+            ViewBag.MovieID = new SelectList(db.Movies, "MovieID", "Title", cinema.MovieID);
             return View(cinema);
         }
 
@@ -69,7 +69,7 @@ namespace MovieMVC.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.FilmID = new SelectList(db.Listings, "FilmID", "Title", cinema.FilmID);
+            ViewBag.MovieID = new SelectList(db.Movies, "MovieID", "Title", cinema.MovieID);
             return View(cinema);
         }
 
@@ -78,7 +78,7 @@ namespace MovieMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "CinemaID,Name,Website,PhoneNumber,TicketPrice,FilmID")] Cinema cinema)
+        public async Task<ActionResult> Edit([Bind(Include = "CinemaID,Name,Website,PhoneNumber,TicketPrice,MovieID")] Cinema cinema)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace MovieMVC.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.FilmID = new SelectList(db.Listings, "FilmID", "Title", cinema.FilmID);
+            ViewBag.MovieID = new SelectList(db.Movies, "MovieID", "Title", cinema.MovieID);
             return View(cinema);
         }
 

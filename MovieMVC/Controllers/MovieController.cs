@@ -6,107 +6,107 @@ using MovieModel;
 
 namespace MovieMVC.Controllers
 {
-    public class MovieListingController : Controller
+    public class MovieController : Controller
     {
         private MovieContext db = new MovieContext();
 
-        // GET: MovieListing
+        // GET: Movie
         public async Task<ActionResult> Index()
         {
-            return View(await db.Listings.ToListAsync());
+            return View(await db.Movies.ToListAsync());
         }
 
-        // GET: MovieListing/Details/5
+        // GET: Movie/Details/5
         public async Task<ActionResult> Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MovieListing movieListing = await db.Listings.FindAsync(id);
-            if (movieListing == null)
+            Movie Movie = await db.Movies.FindAsync(id);
+            if (Movie == null)
             {
                 return HttpNotFound();
             }
-            return View(movieListing);
+            return View(Movie);
         }
 
-        // GET: MovieListing/Create
+        // GET: Movie/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: MovieListing/Create
+        // POST: Movie/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "FilmID,Title,Certification,Genre,Description,RunTime")] MovieListing movieListing)
+        public async Task<ActionResult> Create([Bind(Include = "MovieID,Title,Certification,Genre,Description,RunTime")] Movie Movie)
         {
             if (ModelState.IsValid)
             {
-                db.Listings.Add(movieListing);
+                db.Movies.Add(Movie);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            return View(movieListing);
+            return View(Movie);
         }
 
-        // GET: MovieListing/Edit/5
+        // GET: Movie/Edit/5
         public async Task<ActionResult> Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MovieListing movieListing = await db.Listings.FindAsync(id);
-            if (movieListing == null)
+            Movie Movie = await db.Movies.FindAsync(id);
+            if (Movie == null)
             {
                 return HttpNotFound();
             }
-            return View(movieListing);
+            return View(Movie);
         }
 
-        // POST: MovieListing/Edit/5
+        // POST: Movie/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "FilmID,Title,Certification,Genre,Description,RunTime")] MovieListing movieListing)
+        public async Task<ActionResult> Edit([Bind(Include = "MovieID,Title,Certification,Genre,Description,RunTime")] Movie Movie)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(movieListing).State = EntityState.Modified;
+                db.Entry(Movie).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(movieListing);
+            return View(Movie);
         }
 
-        // GET: MovieListing/Delete/5
+        // GET: Movie/Delete/5
         public async Task<ActionResult> Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MovieListing movieListing = await db.Listings.FindAsync(id);
-            if (movieListing == null)
+            Movie Movie = await db.Movies.FindAsync(id);
+            if (Movie == null)
             {
                 return HttpNotFound();
             }
-            return View(movieListing);
+            return View(Movie);
         }
 
-        // POST: MovieListing/Delete/5
+        // POST: Movie/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(string id)
         {
-            MovieListing movieListing = await db.Listings.FindAsync(id);
-            db.Listings.Remove(movieListing);
+            Movie Movie = await db.Movies.FindAsync(id);
+            db.Movies.Remove(Movie);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
